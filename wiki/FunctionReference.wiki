@@ -1,0 +1,10 @@
+#summary Summary of Functions.
+=Function Reference=
+==[htmlOutput]==
+  ===[htmlOutput#htmlOutput::languageDropdown() htmlOutput::languageDropdown]($name, $selected=$config->language, $attributes="")===
+  ===[htmlOutput#htmlOutput::formOpen() htmlOutput::formOpen]($action, $method="post", $attributes="")===
+  ===[htmlOutput#htmlOutput::formClose() htmlOutput::formClose]()===
+  ===[htmlOutput#htmlOutput::formLabel() htmlOutput::formLabel]($for, $label, $attributes="")===
+  ===[htmlOutput#htmlOutput::formInput() htmlOutput::formInput]($name, $type="text", $id=$name, $size="40", $value="", $attributes="")===
+  ===[htmlOutput#htmlOutput::formSubmitButton() htmlOutput::formSubmitButton]($name="submit", $value="Submit", $attributes="")===
+  ===[htmlOutput#htmlOutput::formResetButton() htmlOutput::formResetButton]($name="reset", $value="Reset", $attributes="")===

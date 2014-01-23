@@ -1,0 +1,320 @@
+#summary Details of mySQL database schema for table: ar_billingboxformuladetails
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_billingboxformuladetails==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *billingboxformulaid* || int(11) || NO || PRI ||  ||  ||  ||
+|| *lineid* || int(11) || NO || PRI ||  ||  ||  ||
+|| *comment* || varchar(30) || NO ||  ||  ||  ||  ||
+|| *formula* || varchar(250) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || billingboxformulaid || 1 ||  || A || 0 || 0 ||
+|| *PRIMARY* || 0 || 0 || 0 || lineid || 2 || 301 || A || 0 || 0 ||
+
+
+===Default Data===
+|| billingboxformulaid || lineid || comment || formula ||
+|| 231 || 1 || Rate by the minute || 1.00 ||
+|| 231 || 2 || Minute over-ride rate || If[Var[minute] = 0, Line[1], Var[minute]] ||
+|| 231 || 4 ||  || Loop[Days] ||
+|| 231 || 5 || Daily time in hours || Attend[Days, 05:00pm, 12:00am] ||
+|| 231 || 7 || Calc. Day charge || Total[(Line[5] * (Line[2] * 60))] ||
+|| 231 || 8 || Calc. total time || Total[Line[5]] ||
+|| 231 || 9 || Total Days Attended || Total[If[Line[5] > 0, 1, 0]] ||
+|| 231 || 10 ||  || Loop[End] ||
+|| 231 || 12 ||  || Print["Total After Hours days  =  "Line[9]] ||
+|| 231 || 13 ||  || Print["Total time in minutes  =  "(Line[8] * 60)] ||
+|| 231 || 14 ||  || Print["Minute rate  =  $"Line[2]] ||
+|| 231 || 15 ||  || Print["Total amount billed  =  $"Line[7]] ||
+|| 231 || 16 || TOTAL CHARGE || Line[7] ||
+|| 232 || 1 || Rate by the Hour || 5.00 ||
+|| 232 || 2 || Hourly over-ride rate || If[Var[hourly] = 0, Line[1], Var[hourly]] ||
+|| 232 || 3 || Min Daily rate || 0.00 ||
+|| 232 || 4 || Max Daily rate || 999.00 ||
+|| 232 || 6 ||  || Loop[Days] ||
+|| 232 || 7 || Daily time in hours || Attend[Days, 12:00am, 12:00am] ||
+|| 232 || 8 || calc Daily min if attend > 0 || If[Line[7] > 0, If[(Line[7] * Line[2]) > Line[3], (Line[7] * Line[2]), Line[3]], 0] ||
+|| 232 || 10 || Calc. Day charge || Total[If[Line[8] <= Line[4], Line[8], Line[4]] ] ||
+|| 232 || 11 || Calc. total time || Total[Line[7]] ||
+|| 232 || 12 || Total Days Attended || Total[If[Line[7] > 0, 1, 0]] ||
+|| 232 || 13 ||  || Loop[End] ||
+|| 232 || 15 ||  || Print["Days attended  =  "Line[12]] ||
+|| 232 || 16 ||  || Print["Total billed hours  =  "Line[11]] ||
+|| 232 || 17 ||  || Print["Hourly rate  =  $"Line[2]] ||
+|| 232 || 18 ||  || Print["Total amount billed  =  $"Line[10]] ||
+|| 232 || 19 ||  || Print["Note daily minimums or maximums may also apply."] ||
+|| 232 || 20 || TOTAL CHARGE || Line[10] ||
+|| 235 || 1 || Rate by the Hour || 5.00 ||
+|| 235 || 2 || Hourly over-ride rate || If[Var[hourly] = 0, Line[1], Var[hourly]] ||
+|| 235 || 4 ||  || Loop[Days] ||
+|| 235 || 5 || Daily time in hours || Attend[Days, 12:00am, 12:00am] ||
+|| 235 || 6 || Scheduled time in hours || Sched[Days, 12:00am, 12:00am] ||
+|| 235 || 7 || Extra hours  || If[(Line[5] - Line[6]) > 0, (Line[5] - Line[6]), 0] ||
+|| 235 || 9 || Calc. Day charge || Total[(Line[7] * Line[2])] ||
+|| 235 || 10 || Calc. total time || Total[Line[7]] ||
+|| 235 || 11 || Total Days Attended || Total[If[Line[5] > 0, 1, 0]] ||
+|| 235 || 12 ||  || Loop[End] ||
+|| 235 || 14 ||  || Print["Total days  =  "Line[11]] ||
+|| 235 || 15 ||  || Print["Total billed hours  =  "Line[10]] ||
+|| 235 || 16 ||  || Print["Hourly rate  =  $"Line[2]] ||
+|| 235 || 17 ||  || Print["Total amount billed  =  $"Line[9]] ||
+|| 235 || 18 || TOTAL CHARGE || Line[9] ||
+|| 236 || 1 || Rate by the Hour || 5.00 ||
+|| 236 || 2 || Hourly over-ride rate || If[Var[hourly] = 0, Line[1], Var[hourly]] ||
+|| 236 || 3 || Min Daily rate || 0.00 ||
+|| 236 || 4 || Max Daily rate || 999.00 ||
+|| 236 || 6 ||  || Loop[Days] ||
+|| 236 || 7 || Daily time in hours || Sched[Days, 12:00am, 12:00am] ||
+|| 236 || 8 || calc Daily min if attend > 0 || If[Line[7] > 0, If[(Line[7] * Line[2]) > Line[3], (Line[7] * Line[2]), Line[3]], 0] ||
+|| 236 || 10 || Calc. Day charge || Total[If[Line[8] <= Line[4], Line[8], Line[4]] ] ||
+|| 236 || 11 || Calc. total time || Total[Line[7]] ||
+|| 236 || 12 || Total Days Attended || Total[If[Line[7] > 0, 1, 0]] ||
+|| 236 || 13 ||  || Loop[End] ||
+|| 236 || 15 ||  || Print["Total days  =  "Line[12]] ||
+|| 236 || 16 ||  || Print["Total billed hours  =  "Line[11]] ||
+|| 236 || 17 ||  || Print["Hourly rate  =  $"Line[2]] ||
+|| 236 || 18 ||  || Print["Total amount billed  =  $"Line[10]] ||
+|| 236 || 19 ||  || Print["Note daily minimums or maximums also apply."] ||
+|| 236 || 20 || TOTAL CHARGE || Line[10] ||
+|| 237 || 1 || Rate by the Hour || 5.00 ||
+|| 237 || 2 || Hourly over-ride rate || If[Var[hourly] = 0, Line[1], Var[hourly]] ||
+|| 237 || 3 || Min Daily rate || 0.00 ||
+|| 237 || 4 || Max Daily rate || 999.00 ||
+|| 237 || 6 ||  || Loop[Days] ||
+|| 237 || 7 || Daily time in hours || OTime[Days, 12:00am, 12:00am] ||
+|| 237 || 8 || calc Daily min if attend > 0 || If[Line[7] > 0, If[(Line[7] * Line[2]) > Line[3], (Line[7] * Line[2]), Line[3]], 0] ||
+|| 237 || 10 || Calc. Day charge || Total[If[Line[8] <= Line[4], Line[8], Line[4]] ] ||
+|| 237 || 11 || Calc. total time || Total[Line[7]] ||
+|| 237 || 12 || Total Days Attended || Total[If[Line[7] > 0, 1, 0]] ||
+|| 237 || 13 ||  || Loop[End] ||
+|| 237 || 15 ||  || Print["Total days  =  "Line[12]] ||
+|| 237 || 16 ||  || Print["Total billed hours  =  "Line[11]] ||
+|| 237 || 17 ||  || Print["Hourly rate  =  $"Line[2]] ||
+|| 237 || 18 ||  || Print["Total amount billed  =  $"Line[10]] ||
+|| 237 || 19 ||  || Print["Note daily minimums or maximums also apply."] ||
+|| 237 || 20 || TOTAL CHARGE || Line[10] ||
+|| 238 || 1 || 1/2 day rate || 15.00 ||
+|| 238 || 2 || Full day rate || 25.00 ||
+|| 238 || 3 || # of hours Full Day starts at || 5.01 ||
+|| 238 || 5 || Half day over-ride rate || If[Var[halfda] = 0, Line[1], Var[halfda]] ||
+|| 238 || 6 || Full day over-ride rate || If[Var[fullda] = 0, Line[2], Var[fullda]] ||
+|| 238 || 8 ||  || Loop[Days] ||
+|| 238 || 9 || Daily time in hours || Attend[Days, 12:00am, 12:00am] ||
+|| 238 || 10 || Calc. Half Days || Total[If[Line[9] > 0, If[Line[9] < Line[3], 1, 0], 0]] ||
+|| 238 || 11 || Calc. Full Days || Total[If[Line[9] >= Line[3], 1, 0]] ||
+|| 238 || 12 || Calc. total time || Total[Line[9]] ||
+|| 238 || 13 || Total Days Attended || Total[If[Line[9] > 0, 1, 0]] ||
+|| 238 || 14 ||  || Loop[End] ||
+|| 238 || 16 || Calc. charge || Total[((Line[10] * Line[5]) + (Line[11] * Line[6]))] ||
+|| 238 || 18 ||  || Print["Total half days  =  "Line[10]] ||
+|| 238 || 19 ||  || Print["Total full days  =  "Line[11]] ||
+|| 238 || 20 ||  || Print["Half day rate  =  $"Line[5]] ||
+|| 238 || 21 ||  || Print["Full day rate  =  $"Line[6]] ||
+|| 238 || 22 ||  || Print["Total amount billed  =  $"Line[16]] ||
+|| 238 || 23 || TOTAL CHARGE || Line[16] ||
+|| 245 || 1 || Daily Rate || 20.00 ||
+|| 245 || 2 || Max Absent days || 5 ||
+|| 245 || 3 || max absent to only bill atten || 99 ||
+|| 245 || 4 || over-ride rate || If[Var[daily] > 0, Var[daily], Line[1]] ||
+|| 245 || 5 || over-ride max absent || If[Var[maxab] > 0, Var[maxab], Line[3]] ||
+|| 245 || 7 || monthly range || Loop[Days] ||
+|| 245 || 8 || Total Days Scheduled  || Total[If[Sched[Days, 12:00am, 12:00am] > 0, 1, 0]] ||
+|| 245 || 9 || Total Days Attended || Total[If[Attend[Days, 12:00am, 12:00am] > 0, 1, 0]] ||
+|| 245 || 10 ||  || Loop[End] ||
+|| 245 || 11 || are attend days acceptable ||  ||
+|| 245 || 12 || to bill for absent days || If[(Line[9] + Line[5]) >= Line[8], 0, (Line[8] - Line[9])] ||
+|| 245 || 13 || Total Days missed beyond max || If[Line[12] = 0, If[(Line[9] + Line[2]) >= Line[8], 0, (Line[8] - (Line[9] + Line[2]))], 0] ||
+|| 245 || 14 || Calculate charge || (((Line[13] + Line[12]) * Line[4]) + 0.00) ||
+|| 245 || 16 ||  || Print["Max absent days  =  "Line[2]] ||
+|| 245 || 17 ||  || Print["Total days attended  =  "Line[9]] ||
+|| 245 || 18 ||  || Print["Total days scheduled  =  "Line[8]] ||
+|| 245 || 19 ||  || Print["Total days billed  =  "Line[13]] ||
+|| 245 || 20 ||  || Print["Daily rate  =  $"Line[4]] ||
+|| 245 || 21 ||  || Print["Total amount billed  =  $"Line[14]] ||
+|| 245 || 22 || TOTAL CHARGE || Line[14] ||
+|| 246 || 1 || Daily Rate || 20.00 ||
+|| 246 || 2 || Max Absent days || 5 ||
+|| 246 || 3 || max absent to only bill atten || 5 ||
+|| 246 || 4 || over-ride rate || If[Var[daily] > 0, Var[daily], Line[1]] ||
+|| 246 || 5 || over-ride max absent || If[Var[maxab] > 0, Var[maxab], Line[3]] ||
+|| 246 || 7 || monthly range || Loop[Days] ||
+|| 246 || 8 || Total Days Scheduled  || Total[If[Sched[Days, 12:00am, 12:00am] > 0, 1, 0]] ||
+|| 246 || 9 || Total Days Attended || Total[If[Attend[Days, 12:00am, 12:00am] > 0, 1, 0]] ||
+|| 246 || 10 ||  || Loop[End] ||
+|| 246 || 11 || are attend days acceptable ||    ||
+|| 246 || 12 || to bill for absent days || If[(Line[9] + Line[5]) >= Line[8], 1, 0] ||
+|| 246 || 13 || Total days to bill w/sick day || If[Line[12] = 1, If[Line[9] >= Line[8], Line[9], If[(Line[9] + Line[2]) >= Line[8], Line[8], (Line[9] + Line[2])]], 0] ||
+|| 246 || 14 || Total days billed no absent || If[Line[12] = 0, Line[9], 0] ||
+|| 246 || 15 || Calculate charge || (((Line[13] + Line[14]) * Line[4]) + 0.00) ||
+|| 246 || 17 ||  || Print["Max absent days  =  "Line[2]] ||
+|| 246 || 18 ||  || Print["Max override absent days  =  "Line[5]] ||
+|| 246 || 19 ||  || Print["Total days attended  =  "Line[9]] ||
+|| 246 || 20 ||  || Print["Total days scheduled  =  "Line[8]] ||
+|| 246 || 21 ||  || Print["Total days billed  =  "(Line[13] + Line[14])] ||
+|| 246 || 22 ||  || Print["Daily rate  =  $"Line[4]] ||
+|| 246 || 23 ||  || Print["Total amount billed  =  $"Line[15]] ||
+|| 246 || 24 || TOTAL CHARGE || Line[15] ||
+|| 249 || 1 || All day rate || 30.00 ||
+|| 249 || 2 || AM day rate || 10.00 ||
+|| 249 || 3 || Mid day rate || 12.00 ||
+|| 249 || 4 || PM day rate || 15.00 ||
+|| 249 || 5 || AM-Mid rate || 17.00 ||
+|| 249 || 6 || AM-PM rate || 20.00 ||
+|| 249 || 7 || Mid-PM rate || 25.00 ||
+|| 249 || 9 || All day over-ride rate || If[Var[allday] = 0, Line[1], Var[allday]] ||
+|| 249 || 10 || AM over-ride rate || If[Var[am] = 0, Line[2], Var[am]] ||
+|| 249 || 11 || Mid over-ride rate || If[Var[mid] = 0, Line[3], Var[mid]] ||
+|| 249 || 12 || PM over-ride rate || If[Var[pm] = 0, Line[4], Var[pm]] ||
+|| 249 || 13 || AM-Mid over-ride rate || If[Var[ammid] = 0, Line[5], Var[ammid]] ||
+|| 249 || 14 || AM-PM over-ride rate || If[Var[ampm] = 0, Line[6], Var[ampm]] ||
+|| 249 || 15 || Mid-PM over-ride rate || If[Var[midpm] = 0, Line[7], Var[midpm]] ||
+|| 249 || 17 ||  || Loop[Days] ||
+|| 249 || 18 || AM hours || If[Sched[Days, 6:00am, 9:00am] > 0, 1, 0] ||
+|| 249 || 19 || Mid hours || If[Sched[Days, 9:01am, 2:00pm] > 0, 1, 0] ||
+|| 249 || 20 || PM Hours || If[Sched[Days, 2:01pm, 5:00pm] > 0, 1, 0] ||
+|| 249 || 22 || all day || Total[If[Line[18] > 0 and Line[19] > 0, If[Line[20] > 0, 1, 0], 0]] ||
+|| 249 || 23 || am only || Total[If[Line[18] > 0 and Line[19] < 1, If[Line[20] < 1, 1, 0], 0]] ||
+|| 249 || 24 || mid only || Total[If[Line[19] > 0 and Line[18] < 1, If[Line[20] < 1, 1, 0], 0]] ||
+|| 249 || 25 || pm only || Total[If[Line[20] > 0 and Line[19] < 1, If[Line[18] < 1, 1, 0], 0]] ||
+|| 249 || 26 || am-mid || Total[If[Line[18] > 0 and Line[19] > 0, If[Line[20] < 1, 1, 0], 0]] ||
+|| 249 || 27 || am-pm || Total[If[Line[18] > 0 and Line[20] > 0, If[Line[19] < 1, 1, 0], 0]] ||
+|| 249 || 28 || mid-pm || Total[If[Line[19] > 0 and Line[20] > 0, If[Line[18] < 1, 1, 0], 0]] ||
+|| 249 || 29 ||  || Loop[End] ||
+|| 249 || 31 || calculate totals || (Line[22] * Line[9]) + (Line[23] * Line[10]) + (Line[24] * Line[11]) + (Line[25] * Line[12]) + (Line[26] * Line[13]) + (Line[27] * Line[14]) + (Line[28] * Line[15]) ||
+|| 249 || 33 ||  || Print["Total Full days  =  "Line[22] " @ $"Line[9] " a day"] ||
+|| 249 || 34 ||  || Print["Total AM only days  =  "Line[23] " @ $"Line[10] " a day"] ||
+|| 249 || 35 ||  || Print["Total Mid only days  =  "Line[24] " @ $"Line[11] " a day"] ||
+|| 249 || 36 ||  || Print["Total PM only days  =  "Line[25] " @ $"Line[12] " a day"] ||
+|| 249 || 37 ||  || Print["Total AM & Mid only days  =  "Line[26] " @ $"Line[13] " a day"] ||
+|| 249 || 38 ||  || Print["Total AM & PM only days  =  "Line[27] " @ $"Line[14] " a day"] ||
+|| 249 || 39 ||  || Print["Total Mid & PM only days  =  "Line[28] " @ $"Line[15] " a day"] ||
+|| 249 || 40 ||  || Print["Total amount billed  =  $"Line[31]] ||
+|| 249 || 41 || TOTAL CHARGE || Line[31] ||
+|| 250 || 1 || 1/2 day rate || 15.00 ||
+|| 250 || 2 || Full day rate || 25.00 ||
+|| 250 || 3 || Half to full days rate || 10.00 ||
+|| 250 || 4 || # of hours Full Day starts at || 5.01 ||
+|| 250 || 6 || Half day over-ride rate || If[Var[halfda] = 0, Line[1], Var[halfda]] ||
+|| 250 || 7 || Full day over-ride rate || If[Var[fullda] = 0, Line[2], Var[fullda]] ||
+|| 250 || 8 || Half to full over-ride rate || If[Var[tofull] = 0, Line[3], Var[tofull]] ||
+|| 250 || 10 || look at attend vs sched and ||  ||
+|| 250 || 11 || bill difference if any ||  ||
+|| 250 || 12 ||  || Loop[Days] ||
+|| 250 || 13 || Daily time in hours || Attend[Days, 12:00am, 12:00am] ||
+|| 250 || 14 ||  || Sched[Days, 12:00am, 12:00am] ||
+|| 250 || 15 || 1=1/2 day, 2= full day ||  ||
+|| 250 || 16 || if attend, is it full or 1/2 || If[Line[13] > 0, If[Line[13] < Line[4], 1, 2], 0] ||
+|| 250 || 17 || if sched, is it full or 1/2 || If[Line[14] > 0, If[Line[14] < Line[4], 1, 2], 0] ||
+|| 250 || 19 || count extra 1/2 days || Total[If[Line[16] = 1 and Line[17] = 0, 1, 0]] ||
+|| 250 || 20 || count extra full days || Total[If[Line[16] = 2 and Line[17] = 0, 1, 0]] ||
+|| 250 || 21 || count 1/2 sched to full atten || Total[If[Line[16] = 2 and Line[17] = 1, 1, 0]] ||
+|| 250 || 22 ||  || Loop[End] ||
+|| 250 || 24 || total extra charges || (Line[19] * Line[6]) + (Line[20] * Line[7]) + (Line[21] * Line[8]) ||
+|| 250 || 26 ||  || Print["Total extra half days  =  "Line[19]] ||
+|| 250 || 27 ||  || Print["Total extra full days  =  "Line[20]] ||
+|| 250 || 28 ||  || Print["Total half to full days  =  "Line[21]] ||
+|| 250 || 29 ||  || Print["Half day rate  =  $"Line[6]] ||
+|| 250 || 30 ||  || Print["Full day rate  =  $"Line[7]] ||
+|| 250 || 31 ||  || Print["Half to full day rate  =  $"Line[8]] ||
+|| 250 || 32 ||  || Print["Total amount billed  =  $"Line[24]] ||
+|| 250 || 33 || TOTAL CHARGE || Line[24] ||
+|| 251 || 1 || 1/2 day rate || 15.00 ||
+|| 251 || 2 || Full day rate || 25.00 ||
+|| 251 || 3 || # of hours Full Day starts at || 5.01 ||
+|| 251 || 5 || Half dayover-ride rate || If[Var[halfda] = 0, Line[1], Var[halfda]] ||
+|| 251 || 6 || Full day over-ride rate || If[Var[fullda] = 0, Line[2], Var[fullda]] ||
+|| 251 || 8 ||  || Loop[Days] ||
+|| 251 || 9 || Daily time in hours || Sched[Days, 12:00am, 12:00am] ||
+|| 251 || 10 || Calc. Half Days || Total[If[Line[9] > 0, If[Line[9] < Line[3], 1, 0], 0]] ||
+|| 251 || 11 || Calc. Full Days || Total[If[Line[9] >= Line[3], 1, 0]] ||
+|| 251 || 12 || Calc. total time || Total[Line[9]] ||
+|| 251 || 13 || Total Days Attended || Total[If[Line[9] > 0, 1, 0]] ||
+|| 251 || 14 ||  || Loop[End] ||
+|| 251 || 16 || Calc. charge || Total[((Line[10] * Line[5]) + (Line[11] * Line[6]))] ||
+|| 251 || 18 ||  || Print["Total half days  =  "Line[10]] ||
+|| 251 || 19 ||  || Print["Total full days  =  "Line[11]] ||
+|| 251 || 20 ||  || Print["Half day rate  =  $"Line[5]] ||
+|| 251 || 21 ||  || Print["Full day rate  =  $"Line[6]] ||
+|| 251 || 22 ||  || Print["Total amount billed  =  $"Line[16]] ||
+|| 251 || 23 || TOTAL CHARGE || Line[16] ||
+|| 252 || 1 || All day rate || 30.00 ||
+|| 252 || 2 || AM day rate || 10.00 ||
+|| 252 || 3 || Mid day rate || 12.00 ||
+|| 252 || 4 || PM day rate || 15.00 ||
+|| 252 || 5 || AM-Mid rate || 17.00 ||
+|| 252 || 6 || AM-PM rate || 20.00 ||
+|| 252 || 7 || Mid-PM rate || 25.00 ||
+|| 252 || 9 || All day over-ride rate || If[Var[allday] = 0, Line[1], Var[allday]] ||
+|| 252 || 10 || AM over-ride rate || If[Var[am] = 0, Line[2], Var[am]] ||
+|| 252 || 11 || Mid over-ride rate || If[Var[mid] = 0, Line[3], Var[mid]] ||
+|| 252 || 12 || PM over-ride rate || If[Var[pm] = 0, Line[4], Var[pm]] ||
+|| 252 || 13 || AM-Mid over-ride rate || If[Var[ammid] = 0, Line[5], Var[ammid]] ||
+|| 252 || 14 || AM-PM over-ride rate || If[Var[ampm] = 0, Line[6], Var[ampm]] ||
+|| 252 || 15 || Mid-PM over-ride rate || If[Var[midpm] = 0, Line[7], Var[midpm]] ||
+|| 252 || 17 ||  || Loop[Days] ||
+|| 252 || 18 || AM hours || If[Attend[Days, 6:00am, 9:00am], 1, 0] ||
+|| 252 || 19 || Mid hours || If[Attend[Days, 9:01am, 2:00pm], 1, 0] ||
+|| 252 || 20 || PM Hours || If[Attend[Days, 2:01pm, 5:00pm], 1, 0] ||
+|| 252 || 22 || AM hours || If[Sched[Days, 6:00am, 9:00am], 1, 0] ||
+|| 252 || 23 || Mid hours || If[Sched[Days, 9:01am, 2:00pm], 1, 0] ||
+|| 252 || 24 || PM Hours || If[Sched[Days, 2:01pm, 5:00pm], 1, 0] ||
+|| 252 || 26 || count extra AM attend || If[Line[18] > Line[22], 1, 0] ||
+|| 252 || 27 || count extra Mid attend || If[Line[19] > Line[23], 1, 0] ||
+|| 252 || 28 || count extra PM attend || If[Line[20] > Line[24], 1, 0] ||
+|| 252 || 30 || all day || Total[If[Line[26] > 0 and Line[27] > 0, If[Line[28] > 0, 1, 0], 0]] ||
+|| 252 || 31 || am only || Total[If[Line[26] > 0 and Line[27] < 1, If[Line[28] < 1, 1, 0], 0]] ||
+|| 252 || 32 || mid only || Total[If[Line[27] > 0 and Line[26] < 1, If[Line[28] < 1, 1, 0], 0]] ||
+|| 252 || 33 || pm only || Total[If[Line[28] > 0 and Line[27] < 1, If[Line[26] < 1, 1, 0], 0]] ||
+|| 252 || 34 || am-mid || Total[If[Line[26] > 0 and Line[27] > 0, If[Line[28] < 1, 1, 0], 0]] ||
+|| 252 || 35 || am-pm || Total[If[Line[26] > 0 and Line[28] > 0, If[Line[27] < 1, 1, 0], 0]] ||
+|| 252 || 36 || mid-pm || Total[If[Line[27] > 0 and Line[28] > 0, If[Line[26] < 1, 1, 0], 0]] ||
+|| 252 || 38 ||  || Loop[End] ||
+|| 252 || 40 || calculate totals || (Line[30] * Line[9]) + (Line[31] * Line[10]) + (Line[32] * Line[11]) + (Line[33] * Line[12]) + (Line[34] * Line[13]) + (Line[35] * Line[14]) + (Line[36] * Line[15]) ||
+|| 252 || 42 ||  || Print["Extra Full days  =  "Line[30] " @ $"Line[9] " a day"] ||
+|| 252 || 43 ||  || Print["Extra AM only days  =  "Line[31] " @ $"Line[10] " a day"] ||
+|| 252 || 44 ||  || Print["Extra Mid only days  =  "Line[32] " @ $"Line[11] " a day"] ||
+|| 252 || 45 ||  || Print["Extra PM only days  =  "Line[33] " @ $"Line[12] " a day"] ||
+|| 252 || 46 ||  || Print["Extra AM & Mid only days  =  "Line[34] " @ $"Line[13] " a day"] ||
+|| 252 || 47 ||  || Print["Extra AM & PM only days  =  "Line[35] " @ $"Line[14] " a day"] ||
+|| 252 || 48 ||  || Print["Extra Mid & PM only days  =  "Line[36] " @ $"Line[15] " a day"] ||
+|| 252 || 49 ||  || Print["Total amount billed  =  $"Line[40]] ||
+|| 252 || 50 || TOTAL CHARGE || Line[40] ||
+|| 253 || 1 || All day rate || 30.00 ||
+|| 253 || 2 || AM day rate || 10.00 ||
+|| 253 || 3 || Mid day rate || 12.00 ||
+|| 253 || 4 || PM day rate || 15.00 ||
+|| 253 || 5 || AM-Mid rate || 17.00 ||
+|| 253 || 6 || AM-PM rate || 20.00 ||
+|| 253 || 7 || Mid-PM rate || 25.00 ||
+|| 253 || 9 || All day over-ride rate || If[Var[allday] = 0, Line[1], Var[allday]] ||
+|| 253 || 10 || AM over-ride rate || If[Var[am] = 0, Line[2], Var[am]] ||
+|| 253 || 11 || Mid over-ride rate || If[Var[mid] = 0, Line[3], Var[mid]] ||
+|| 253 || 12 || PM over-ride rate || If[Var[pm] = 0, Line[4], Var[pm]] ||
+|| 253 || 13 || AM-Mid over-ride rate || If[Var[ammid] = 0, Line[5], Var[ammid]] ||
+|| 253 || 14 || AM-PM over-ride rate || If[Var[ampm] = 0, Line[6], Var[ampm]] ||
+|| 253 || 15 || Mid-PM over-ride rate || If[Var[midpm] = 0, Line[7], Var[midpm]] ||
+|| 253 || 17 ||  || Loop[Days] ||
+|| 253 || 18 || AM hours || If[Attend[Days, 6:00am, 9:00am] > 0, 1, 0] ||
+|| 253 || 19 || Mid hours || If[Attend[Days, 9:01am, 2:00pm] > 0, 1, 0] ||
+|| 253 || 20 || PM Hours || If[Attend[Days, 2:01pm, 5:00pm] > 0, 1, 0] ||
+|| 253 || 22 || all day || Total[If[Line[18] > 0 and Line[19] > 0, If[Line[20] > 0, 1, 0], 0]] ||
+|| 253 || 23 || am only || Total[If[Line[18] > 0 and Line[19] < 1, If[Line[20] < 1, 1, 0], 0]] ||
+|| 253 || 24 || mid only || Total[If[Line[19] > 0 and Line[18] < 1, If[Line[20] < 1, 1, 0], 0]] ||
+|| 253 || 25 || pm only || Total[If[Line[20] > 0 and Line[19] < 1, If[Line[18] < 1, 1, 0], 0]] ||
+|| 253 || 26 || am-mid || Total[If[Line[18] > 0 and Line[19] > 0, If[Line[20] < 1, 1, 0], 0]] ||
+|| 253 || 27 || am-pm || Total[If[Line[18] > 0 and Line[20] > 0, If[Line[19] < 1, 1, 0], 0]] ||
+|| 253 || 28 || mid-pm || Total[If[Line[19] > 0 and Line[20] > 0, If[Line[18] < 1, 1, 0], 0]] ||
+|| 253 || 29 ||  || Loop[End] ||
+|| 253 || 31 || calculate totals || (Line[22] * Line[9]) + (Line[23] * Line[10]) + (Line[24] * Line[11]) + (Line[25] * Line[12]) + (Line[26] * Line[13]) + (Line[27] * Line[14]) + (Line[28] * Line[15]) ||
+|| 253 || 33 ||  || Print["Total Full days  =  "Line[22] " @ $"Line[9] " a day"] ||
+|| 253 || 34 ||  || Print["Total AM only days  =  "Line[23] " @ $"Line[10] " a day"] ||
+|| 253 || 35 ||  || Print["Total Mid only days  =  "Line[24] " @ $"Line[11] " a day"] ||
+|| 253 || 36 ||  || Print["Total PM only days  =  "Line[25] " @ $"Line[12] " a day"] ||
+|| 253 || 37 ||  || Print["Total AM & Mid only days  =  "Line[26] " @ $"Line[13] " a day"] ||
+|| 253 || 38 ||  || Print["Total AM & PM only days  =  "Line[27] " @ $"Line[14] " a day"] ||
+|| 253 || 39 ||  || Print["Total Mid & PM only days  =  "Line[28] " @ $"Line[15] " a day"] ||
+|| 253 || 40 ||  || Print["Total amount billed  =  $"Line[31]] ||
+|| 253 || 41 || TOTAL CHARGE || Line[31] ||

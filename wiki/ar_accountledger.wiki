@@ -1,0 +1,61 @@
+#summary Details of mySQL database schema for table: ar_accountledger
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_accountledger==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *accountledgerid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *accountledgerrelid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *postdate* || datetime || NO || MUL ||  ||  ||  ||
+|| *chargecreditdescid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *comment* || varchar(50) || NO ||  ||  ||  ||  ||
+|| *amount* || decimal(18,2) || NO ||  ||  ||  ||  ||
+|| *creationdate* || datetime || NO ||  ||  ||  ||  ||
+|| *voidstatusid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *accountvoidid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *depositreportid* || int(11) || NO || MUL || -1 ||  ||  ||
+|| *transactionreportid* || int(11) || NO || MUL || -1 ||  ||  ||
+|| *automaticbillingbatchid* || int(11) || NO || MUL || -1 ||  ||  ||
+|| *islocked* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *ledgerlocktid* || int(11) || NO || MUL ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || accountledgerid || 1 || 0 || A || 0 || 0 ||
+|| *_dta_index_ar_accountledger_26_1652252991__k2_k1_k5_k9_7_4864* || 1 || 1 || 1 || accountledgerrelid || 1 ||  || A || 1 || 1 ||
+|| *_dta_index_ar_accountledger_26_1652252991__k2_k1_k5_k9_7_4864* || 1 || 1 || 1 || accountledgerid || 2 ||  || A || 1 || 1 ||
+|| *_dta_index_ar_accountledger_26_1652252991__k2_k1_k5_k9_7_4864* || 1 || 1 || 1 || chargecreditdescid || 3 ||  || A || 1 || 1 ||
+|| *_dta_index_ar_accountledger_26_1652252991__k2_k1_k5_k9_7_4864* || 1 || 1 || 1 || voidstatusid || 4 ||  || A || 1 || 1 ||
+|| *ix_accountledger_voidandpostdate* || 1 || 1 || 1 || voidstatusid || 1 ||  || A || 1 || 1 ||
+|| *ix_accountledger_voidandpostdate* || 1 || 1 || 1 || postdate || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerid_accountledgerrelid_chargecre* || 1 || 1 || 1 || accountledgerid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerid_accountledgerrelid_chargecre* || 1 || 1 || 1 || accountledgerrelid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerid_accountledgerrelid_chargecre* || 1 || 1 || 1 || chargecreditdescid || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerid_chargecreditdescid* || 1 || 1 || 1 || accountledgerid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerid_chargecreditdescid* || 1 || 1 || 1 || chargecreditdescid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerrel_chargecreditdesc_voidstatus* || 1 || 1 || 1 || chargecreditdescid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerrel_chargecreditdesc_voidstatus* || 1 || 1 || 1 || accountledgerrelid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerrel_chargecreditdesc_voidstatus* || 1 || 1 || 1 || voidstatusid || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_accountledgerrelid* || 1 || 1 || 1 || accountledgerrelid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_automaticbillingbatch_chargecreditdesc* || 1 || 1 || 1 || automaticbillingbatchid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_automaticbillingbatch_chargecreditdesc* || 1 || 1 || 1 || chargecreditdescid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport* || 1 || 1 || 1 || accountledgerid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport* || 1 || 1 || 1 || depositreportid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport* || 1 || 1 || 1 || accountvoidid || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport2* || 1 || 1 || 1 || accountvoidid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport2* || 1 || 1 || 1 || accountledgerrelid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport2* || 1 || 1 || 1 || chargecreditdescid || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport3* || 1 || 1 || 1 || depositreportid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport3* || 1 || 1 || 1 || accountvoidid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport3* || 1 || 1 || 1 || accountledgerrelid || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport3* || 1 || 1 || 1 || chargecreditdescid || 4 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_depositreport3* || 1 || 1 || 1 || accountledgerid || 5 ||  || A || 1 || 1 ||
+|| *ix_ar_accountledger_postdate* || 1 || 1 || 1 || postdate || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_accountledger_ar_transactionreport* || 1 || 1 || 1 || transactionreportid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_accountledger_g_kiddiecareuser* || 1 || 1 || 1 || kiddiecareuserid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_accountledger_g_typestable* || 1 || 1 || 1 || ledgerlocktid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

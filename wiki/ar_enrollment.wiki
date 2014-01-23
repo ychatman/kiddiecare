@@ -1,0 +1,33 @@
+#summary Details of mySQL database schema for table: ar_enrollment
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_enrollment==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *enrollmentid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *startdate* || datetime || NO ||  ||  ||  ||  ||
+|| *enddate* || datetime || NO ||  ||  ||  ||  ||
+|| *enrollmentstatustid* || int(11) || NO || MUL ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || enrollmentid || 1 || 1 || A || 0 || 0 ||
+|| *idx_enrollmentstatustid_childschoolid_startdate_enddate* || 1 || 1 || 1 || enrollmentstatustid || 1 ||  || A || 1 || 1 ||
+|| *idx_enrollmentstatustid_childschoolid_startdate_enddate* || 1 || 1 || 1 || childschoolid || 2 ||  || A || 1 || 1 ||
+|| *idx_enrollmentstatustid_childschoolid_startdate_enddate* || 1 || 1 || 1 || startdate || 3 ||  || A || 1 || 1 ||
+|| *idx_enrollmentstatustid_childschoolid_startdate_enddate* || 1 || 1 || 1 || enddate || 4 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid* || 1 || 1 || 1 || enrollmentstatustid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid* || 1 || 1 || 1 || childschoolid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_enddate* || 1 || 1 || 1 || enrollmentstatustid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_enddate* || 1 || 1 || 1 || childschoolid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_enddate* || 1 || 1 || 1 || enddate || 3 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_startdate* || 1 || 1 || 1 || enrollmentstatustid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_startdate* || 1 || 1 || 1 || childschoolid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_enrollment_enrollmentstatustid_childschoolid_startdate* || 1 || 1 || 1 || startdate || 3 ||  || A || 1 || 1 ||
+|| *ix_childschoollid* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+|| enrollmentid || childschoolid || startdate || enddate || enrollmentstatustid ||
+|| -1 || -1 || 2008-01-01 00:00:00 || 2070-12-31 23:59:00 || 287 ||

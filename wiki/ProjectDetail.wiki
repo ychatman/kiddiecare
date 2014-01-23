@@ -1,0 +1,10 @@
+#labels Phase-Requirements,Index
+=Project Detail=
+  * === [http://code.google.com/p/kiddiecare/wiki/ProjectDetailUI User Interface Layout] ===
+  * === [http://code.google.com/p/kiddiecare/wiki/ProjectDetailBuiltInReports Built-In Reports] ===
+
+----
+
+===Related Content===
+  * [ProjectDetail Project Detail]
+  * [http://code.google.com/p/kiddiecare/w/list Search]

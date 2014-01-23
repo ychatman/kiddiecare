@@ -1,0 +1,13 @@
+#summary Details of mySQL database schema for table: g_kiddiecareuser
+=[DatabaseSchema < Database Schema]=
+
+==g_kiddiecareuser==
+|| *Field* || Type || Null || Key || Default || Extra ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+
+
+===Default Data===
+No Default Data

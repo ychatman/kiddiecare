@@ -1,0 +1,29 @@
+#summary Details of mySQL database schema for table: ar_depositreport
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_depositreport==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *depositreportid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *schoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *schooldepositnumber* || int(11) || NO ||  ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *creationdate* || datetime || NO ||  ||  ||  ||  ||
+|| *postdate* || datetime || NO ||  ||  ||  ||  ||
+|| *comment* || varchar(50) || NO ||  ||  ||  ||  ||
+|| *istebatch* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *receiptdata* || longblob || YES ||  ||  ||  ||  ||
+|| *receiptdate* || datetime || YES ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || depositreportid || 1 || 1 || A || 0 || 0 ||
+|| *ix_ar_schoolid_schooldepositnumber* || 0 || 0 || 0 || schoolid || 1 ||  || A || 0 || 0 ||
+|| *ix_ar_schoolid_schooldepositnumber* || 0 || 0 || 0 || schooldepositnumber || 2 || 1 || A || 0 || 0 ||
+|| *ix_ar_depositreport* || 1 || 1 || 1 || schoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_depositreport_g_kiddiecareuser* || 1 || 1 || 1 || kiddiecareuserid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+|| depositreportid || schoolid || schooldepositnumber || kiddiecareuserid || creationdate || postdate || comment || istebatch || receiptdata || receiptdate ||
+|| -1 || -1 || 0 || -1 || 1900-01-01 00:00:00 || 1900-01-01 00:00:00 || System || 0 ||  ||  ||

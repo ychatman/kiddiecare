@@ -1,0 +1,36 @@
+#summary Todo list for project.
+#labels Phase-Implementation,Phase-Requirements,TODO,TODO-Done,Index
+
+=Project Todo=
+  * *Establish and Prioritize [http://code.google.com/p/kiddiecare/issues/detail?id=1 Project Development Plan]*
+    * Alpha Phase
+    * Beta Phase
+    * Delta Phase
+
+  * *[http://code.google.com/p/kiddiecare/issues/list?q=label:Functions Outline Functions]*
+    * [http://code.google.com/p/kiddiecare/issues/detail?id=2 Core]
+    * [http://code.google.com/p/kiddiecare/issues/detail?id=3 Module]
+    * [http://code.google.com/p/kiddiecare/issues/detail?id=4 System]
+    * [http://code.google.com/p/kiddiecare/issues/detail?id=5 User Interface]
+    * [http://code.google.com/p/kiddiecare/issues/detail?id=7 Utility]
+
+  * *[http://code.google.com/p/kiddiecare/issues/detail?id=8 Outline Database Schema]*
+
+  * *[http://code.google.com/p/kiddiecare/issues/detail?id=9 Design User Interface]*
+    * [http://code.google.com/p/kiddiecare/source/browse/#svn%2Ftrunk%2Ftemplates Graphic Elements]
+      * _Red_
+      * _Blue_
+      * _Green_
+      * _Purple_
+
+  * *Create [http://code.google.com/p/kiddiecare/issues/detail?id=9 Development Environment]*
+    * Server
+    * Domain
+    * [http://code.google.com/p/kiddiecare/source/browse File Structure]
+      * >_includes_
+      * >_templates_
+        * >_Red_
+        * >_Blue_
+        * >_Green_
+        * >_Purple_
+      * >_images_

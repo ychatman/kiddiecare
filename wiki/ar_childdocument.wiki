@@ -1,0 +1,22 @@
+#summary Details of mySQL database schema for table: ar_childdocument
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_childdocument==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *childdocumentid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *dateadded* || datetime || NO ||  ||  ||  ||  ||
+|| *documentdescription* || varchar(50) || NO ||  ||  ||  ||  ||
+|| *childdocument* || longblob || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || childdocumentid || 1 || 0 || A || 0 || 0 ||
+|| *fk_ar_childdocument_ar_childschool* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_childdocument_g_kiddiecareuser* || 1 || 1 || 1 || kiddiecareuserid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

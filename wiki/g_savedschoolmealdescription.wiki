@@ -1,0 +1,21 @@
+#summary Details of mySQL database schema for table: g_savedschoolmealdescription
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_savedschoolmealdescription==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *savedschoolmealdescriptionid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *savedschoolmealid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *dayofweek* || varchar(1) || NO ||  ||  ||  ||  ||
+|| *mealabbreviationid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *mealdescription* || varchar(200) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || savedschoolmealdescriptionid || 1 || 0 || A || 0 || 0 ||
+|| *fk_g_savedschoolmealdescription_fp_mealabbreviation* || 1 || 1 || 1 || mealabbreviationid || 1 ||  || A || 1 || 1 ||
+|| *fk_g_savedschoolmealdescription_g_savedschoolmealname* || 1 || 1 || 1 || savedschoolmealid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

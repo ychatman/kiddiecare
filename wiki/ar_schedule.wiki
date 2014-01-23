@@ -1,0 +1,24 @@
+#summary Details of mySQL database schema for table: ar_schedule
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_schedule==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *scheduleid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *schedulekeyid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *startappliesto* || datetime || NO ||  ||  ||  ||  ||
+|| *endappliesto* || datetime || NO ||  ||  ||  ||  ||
+|| *startweek* || int(11) || NO ||  ||  ||  ||  ||
+|| *totalweeks* || int(11) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || scheduleid || 1 || 1 || A || 0 || 0 ||
+|| *ix_childschoolid* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_schedule_ar_schedulekey1* || 1 || 1 || 1 || schedulekeyid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+|| scheduleid || childschoolid || schedulekeyid || startappliesto || endappliesto || startweek || totalweeks ||
+|| -1 || -1 || -1 || 1900-01-01 00:00:00 || 2070-12-31 23:59:00 || 1 || 1 ||

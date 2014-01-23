@@ -1,0 +1,25 @@
+#summary Details of mySQL database schema for table: ar_childabsences
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_childabsences==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *childabsencesid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *absentdate* || datetime || NO ||  ||  ||  ||  ||
+|| *absentstart* || int(11) || NO ||  ||  ||  ||  ||
+|| *absentend* || int(11) || NO ||  ||  ||  ||  ||
+|| *absentreasontid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *comment* || varchar(30) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || childabsencesid || 1 || 0 || A || 0 || 0 ||
+|| *ix_ar_childabsences* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_childabsences_childschool_absentdate* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *ix_ar_childabsences_childschool_absentdate* || 1 || 1 || 1 || absentdate || 2 ||  || A || 1 || 1 ||
+|| *fk_ar_childabsences_g_typestable* || 1 || 1 || 1 || absentreasontid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

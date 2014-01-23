@@ -1,0 +1,32 @@
+#summary Details of mySQL database schema for table: pr_timecard
+=[DatabaseSchema < Database Schema]=
+
+==kc_pr_timecard==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *timecardid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *employeeschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *paycodeid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *workareaid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *punchinid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *punchindate* || datetime || NO ||  ||  ||  ||  ||
+|| *punchinminute* || int(11) || NO ||  ||  ||  ||  ||
+|| *ispunchinrounded* || tinyint(1) || NO ||  || 0 ||  ||  ||
+|| *punchoutid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *punchoutdate* || datetime || NO ||  ||  ||  ||  ||
+|| *punchoutminute* || int(11) || NO ||  ||  ||  ||  ||
+|| *ispunchoutrounded* || tinyint(1) || NO ||  || 0 ||  ||  ||
+|| *comment* || varchar(35) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || timecardid || 1 || 0 || A || 0 || 0 ||
+|| *ix_pr_timecard* || 1 || 1 || 1 || employeeschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_timecard_g_personin* || 1 || 1 || 1 || punchinid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_timecard_g_personout* || 1 || 1 || 1 || punchoutid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_timecard_g_workplace* || 1 || 1 || 1 || workareaid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_timecard_pr_paycode* || 1 || 1 || 1 || paycodeid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

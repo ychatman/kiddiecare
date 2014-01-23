@@ -1,0 +1,154 @@
+body {
+	background: white;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	color: #000;
+}
+.wrapper{
+	max-width: 1200px;
+	min-width: 1020px;
+	margin: 0 auto;
+}
+.statusbar{
+	width: 100%;
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	height: 25px;
+	line-height: 25px;
+	background-color: rgb(0,22,45);
+	color: rgb(172,203,255);
+}
+.statusbar a{
+	color: white;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.statusbar .welcome{
+	float: left;
+	padding-left: 5px;
+	line-height: 25px;
+}
+.statusbar .timestamp{
+	float: right;
+	text-align: right;
+	padding-right: 5px;
+	line-height: 25px;
+}
+.header{
+	min-height: 178px;
+	width: 100%;
+	background: #1b3d5e url('../images/header_bg.png') repeat-x top;
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	display: block;
+}
+#logo{
+	margin-left: 15px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.mainmenu{
+	padding: 0px;
+	margin: 0px;
+	height: 28px;
+	text-align: left;
+	display: block;
+}
+.mainmenu ul{
+	list-style: none;
+	padding-left: 15px;
+	display: block;
+}
+.mainmenu li{
+	list-style: none;
+	float: left;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-top: 0px;
+	background: url('../images/main_menu_left_bg.png') no-repeat left top;
+	display: block;
+	padding-left: 10px;
+	display: block;
+}
+.mainmenu a{
+	background: url('../images/main_menu_right_bg.png') no-repeat right top;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	padding-right:10px;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+}
+.quicklinks{
+	background-color: #1b3d5e;
+	height: 30px;
+	line-height: 25px;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 10px;
+	display: block;
+	font-weight: bold;
+}
+.quicklinks span{
+	float: left;
+	font-weight: normal;
+}
+.quicklinks a{
+	color: white;
+}
+.quicklinks ul{
+	list-style: none;
+	padding-left: 15px;
+	display: block;
+}
+.quicklinks li{
+	list-style: none;
+	float: left;
+}
+.main{
+	min-height: 100px;
+	padding: 0 5px;
+	margin-bottom: 10px;
+}
+table.usertable{
+	width: 100%;
+	padding: 0;
+}
+table.usertable tr#table_header{
+	background-color: #356593;
+	color: white;
+}
+table.usertable tr#table_data:hover{
+	background: #ccc;
+}
+table.usertable tr#table_data:hover td#selector{
+	background: #ccc url('../images/selector.png') center center no-repeat;
+}
+table.usertable th, table.usertable td{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	
+}
+table.usertable th{
+	text-align: left;
+	
+}
+table.usertable th#name, table.usertable th#active, table.usertable th#admin, table.usertable th#edit, table.usertable th#delete{
+	text-align: center;
+}
+table.usertable td#name, table.usertable td#active, table.usertable td#admin, table.usertable td#edit, table.usertable td#delete{
+	text-align: center;
+}
+.clr{
+	height: 0px;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}

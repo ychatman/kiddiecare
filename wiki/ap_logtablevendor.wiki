@@ -1,0 +1,24 @@
+#summary Details of mySQL database schema for table: ap_logtablevendor
+=[DatabaseSchema < Database Schema]=
+
+==kc_ap_logtablevendor==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *logtablevendorid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *vendorid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *commentdate* || datetime || NO ||  ||  ||  ||  ||
+|| *originaldate* || datetime || NO ||  ||  ||  ||  ||
+|| *logsheettid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *isrestricted* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *comment* || varchar(2000) || NO ||  ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || logtablevendorid || 1 || 0 || A || 0 || 0 ||
+|| *ix_logtablevendor* || 1 || 1 || 1 || vendorid || 1 ||  || A || 1 || 1 ||
+|| *fk_ap_logtablevendor_g_typestable* || 1 || 1 || 1 || logsheettid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

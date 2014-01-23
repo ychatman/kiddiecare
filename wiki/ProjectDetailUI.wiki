@@ -1,0 +1,31 @@
+#labels Phase-Requirements
+<table border="1" cellpadding="5" cellspacing="0" height="300" width="100%">
+    <tr>
+      <td colspan="2">
+*Masthead*
+  * Left aligned customizable client logo
+  * Right aligned intelligent search</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+*Hornav*
+  * Links to specific modules
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2" width="150">
+*Section Menu*
+  * Links to specific sections based on module
+      </td>
+      <td>
+*Content*
+  * based on specific section
+      </td>
+    </tr>
+    <tr>
+      <td>
+*Footer*
+  * Copyright information
+  * Powered by information</td>
+    </tr>
+</table>

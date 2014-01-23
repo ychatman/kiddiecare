@@ -1,0 +1,22 @@
+#summary Details of mySQL database schema for table: pr_employeedocument
+=[DatabaseSchema < Database Schema]=
+
+==kc_pr_employeedocument==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *employeedocumentid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *employeeschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *dateadded* || datetime || NO ||  ||  ||  ||  ||
+|| *documentdescription* || varchar(50) || NO ||  ||  ||  ||  ||
+|| *employeedocument* || longblob || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || employeedocumentid || 1 || 0 || A || 0 || 0 ||
+|| *fk_pr_employeedocument_g_kiddiecareuser* || 1 || 1 || 1 || kiddiecareuserid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_employeedocument_pr_employeeschool* || 1 || 1 || 1 || employeeschoolid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

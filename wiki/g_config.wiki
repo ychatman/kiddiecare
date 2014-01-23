@@ -1,0 +1,40 @@
+#summary Details of mySQL database schema for table: g_config
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_config==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *config_id* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *config_title* || varchar(255) || NO ||  ||  ||  ||  ||
+|| *config_key* || varchar(255) || NO ||  ||  ||  ||  ||
+|| *config_value* || varchar(255) || NO ||  ||  ||  ||  ||
+|| *config_description* || varchar(255) || NO ||  ||  ||  ||  ||
+|| *config_group_id* || int(11) || NO ||  || 0 ||  ||  ||
+|| *sort_order* || int(5) || YES ||  ||  ||  ||  ||
+|| *last_modified* || datetime || YES ||  ||  ||  ||  ||
+|| *date_added* || datetime || NO ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| *use_function* || varchar(255) || YES ||  ||  ||  ||  ||
+|| *set_function* || varchar(255) || YES ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || config_id || 1 || 15 || A || 0 || 0 ||
+
+
+===Default Data===
+|| config_id || config_title || config_key || config_value || config_description || config_group_id || sort_order || last_modified || date_added || use_function || set_function ||
+|| 1 || Center Name || CENTER_NAME || Test Center || The name of my center || 0 || 1 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 2 || Center Owner || CENTER_OWNER || Test Owner || The name of my center owner || 0 || 2 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 3 || Center E-Mail Address || CENTER_OWNER_EMAIL_ADDRESS || millerdesignstudios@gmail.com || The e-mail address of my center owner || 0 || 3 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 4 || E-Mail From || EMAIL_FROM || Test Center || The name used in (sent) e-mails || 0 || 4 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 5 || Center Address || CENTER_STREETADDRESS || 123 Anywhere St || The street address of my center || 0 || 5 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 6 || Center State || CENTER_STATE ||  || The state my center is located in. || 0 || 6 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 7 || Center Zip Code || CENTER_POSTAL || 37042 || The postal code my center is located in. || 0 || 7 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 8 || Country || CENTER_COUNTRY ||  || The country my center is located in. || 0 || 8 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 9 || Area Code 1 || CENTER_AREACODE_1 || 931 || The area code of my center's main phone number || 0 || 9 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 10 || Phone Number 1 || CENTER_PHONE_1 || 1231234 || The main phone number of my center. || 0 || 10 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 11 || Area Code 2 || CENTER_AREACODE_2 || 931 || The area code of my center's secondary phone number || 0 || 11 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 12 || Phone Number 2 || CENTER_PHONE_2 || 4564567 || The secondary phone number of my center. || 0 || 12 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 13 || Fax Area Code || CENTER_FAXAREACODE || 931 || The area code of my center's fax number || 0 || 13 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 14 || Fax Number || CENTER_FAX || 7897890 || The fax number of my center. || 0 || 14 ||  || 0000-00-00 00:00:00 ||  ||  ||
+|| 15 || Send E-Mails || SEND_EMAILS || TRUE || Send out e-mails || 0 || 15 ||  || 0000-00-00 00:00:00 ||  ||  ||

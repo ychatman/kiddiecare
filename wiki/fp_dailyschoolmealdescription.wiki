@@ -1,0 +1,21 @@
+#summary Details of mySQL database schema for table: fp_dailyschoolmealdescription
+=[DatabaseSchema < Database Schema]=
+
+==kc_fp_dailyschoolmealdescription==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *dailyschoolmealdescriptionid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *dailyschoolmealid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *mealabbreviationid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *mealdescription* || varchar(200) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || dailyschoolmealdescriptionid || 1 || 0 || A || 0 || 0 ||
+|| *ix_dailyschoolmealid_mealabbreviationid* || 0 || 0 || 0 || dailyschoolmealid || 1 ||  || A || 0 || 0 ||
+|| *ix_dailyschoolmealid_mealabbreviationid* || 0 || 0 || 0 || mealabbreviationid || 2 || 0 || A || 0 || 0 ||
+|| *fk_fp_dailyschoolmealdescription_fp_mealabbreviation* || 1 || 1 || 1 || mealabbreviationid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

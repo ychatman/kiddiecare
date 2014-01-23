@@ -1,0 +1,25 @@
+#summary Details of mySQL database schema for table: ar_logtableaccount
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_logtableaccount==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *logtableaccountid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *accountid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *commentdate* || datetime || NO ||  ||  ||  ||  ||
+|| *originaldate* || datetime || NO ||  ||  ||  ||  ||
+|| *logsheettid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *isrestricted* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *comment* || varchar(2000) || NO ||  ||  ||  ||  ||
+|| *kiddiecareuserid* || int(11) || NO || MUL ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || logtableaccountid || 1 || 0 || A || 0 || 0 ||
+|| *ix_g_logtableaccount_accountid* || 1 || 1 || 1 || accountid || 1 ||  || A || 1 || 1 ||
+|| *fk_g_logtableaccount_kiddiecareuserid* || 1 || 1 || 1 || kiddiecareuserid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_logtableaccount_g_typestable* || 1 || 1 || 1 || logsheettid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

@@ -1,0 +1,19 @@
+#summary Details of mySQL database schema for table: ar_schedulekey
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_schedulekey==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *schedulekeyid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *istemplate* || tinyint(1) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || schedulekeyid || 1 || 1 || A || 0 || 0 ||
+|| *ix_schedulekey_istemplate* || 1 || 1 || 1 || schedulekeyid || 1 ||  || A || 1 || 1 ||
+|| *ix_schedulekey_istemplate* || 1 || 1 || 1 || istemplate || 2 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+|| schedulekeyid || istemplate ||
+|| -1 || 0 ||
