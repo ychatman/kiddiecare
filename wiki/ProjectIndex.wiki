@@ -1,0 +1,24 @@
+#labels Featured,Index,Phase-Design,Phase-Requirements
+*[ProjectDetailUI Project Overview]*
+  * _[ProjectDetail Project Detail]_
+    * [ProjectDetailUI User Interface Layout]
+    * [http://code.google.com/p/kiddiecare/wiki/ProjectDetailBuiltInReports Built-In Reports]
+
+*[ProjectTodo Project Todo]*
+
+*[ProjectRules Rules and Guidelines]*
+
+*[DevelopmentGuide Development Guide]*
+
+*[DatabaseSchema Database Schema]*
+
+*[FunctionReference Function Reference]*
+
+
+
+
+
+
+
+----
+[http://code.google.com/p/kiddiecare/w/list Search]

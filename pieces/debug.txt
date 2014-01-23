@@ -1,0 +1,34 @@
+<?php
+  /**
+   * @desc   works out the variables in the current scope(from where function was called).
+   *         Returns an array with variable name as key and vaiable value as value
+   * @param  $varList: variables returned by get_defined_vars() in desired scope.
+   *         $excludeList: variables to be excluded from the list.
+   * @return array
+   */
+  function getDefinedVars($varList, $excludeList)
+  {
+      $temp1 = array_values(array_diff(array_keys($varList), $excludeList));
+      $temp2 = array();
+      while (list($key, $value) = each($temp1)) {
+          global $$value;
+          $temp2[$value] = $$value;
+      }
+      return $temp2;
+  }
+  
+  /**
+   * @desc   holds the variable that are to be excluded from the list.
+   *         Add or drop new elements as per your preference.
+   * @var    array
+   */
+  $excludeList = array('GLOBALS', '_FILES', '_COOKIE', '_POST', '_GET', 'excludeList');
+  
+  //get all variables defined in current scope
+  $varList = get_defined_vars();
+  
+  //Time to call the function
+  print "<pre style='background-color: red'>";
+  print_r(getDefinedVars($varList, $excludeList));
+  print "</pre>";
+?>

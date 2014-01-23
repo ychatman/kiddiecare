@@ -1,0 +1,17 @@
+#summary Details of mySQL database schema for table: g_savedschoolmealname
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_savedschoolmealname==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *savedschoolmealid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *mealname* || varchar(50) || NO ||  ||  ||  ||  ||
+|| *mealtype* || varchar(1) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || savedschoolmealid || 1 || 0 || A || 0 || 0 ||
+
+
+===Default Data===
+No Default Data

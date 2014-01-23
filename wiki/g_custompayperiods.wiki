@@ -1,0 +1,18 @@
+#summary Details of mySQL database schema for table: g_custompayperiods
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_custompayperiods==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *payperiodid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *regionid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *startdate* || datetime || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || payperiodid || 1 || 0 || A || 0 || 0 ||
+|| *fk_g_payperiods_g_regions* || 1 || 1 || 1 || regionid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

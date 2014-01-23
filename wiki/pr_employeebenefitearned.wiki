@@ -1,0 +1,22 @@
+#summary Details of mySQL database schema for table: pr_employeebenefitearned
+=[DatabaseSchema < Database Schema]=
+
+==kc_pr_employeebenefitearned==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *employeebenefitearnedid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *employeeschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *earneddate* || datetime || NO ||  ||  ||  ||  ||
+|| *hoursearned* || decimal(18,2) || NO ||  ||  ||  ||  ||
+|| *paycodeid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *comment* || varchar(35) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || employeebenefitearnedid || 1 || 0 || A || 0 || 0 ||
+|| *ix_pr_employeebenefitearned* || 1 || 1 || 1 || employeeschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_employeebenefitearned_pr_paycodebenefit* || 1 || 1 || 1 || paycodeid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

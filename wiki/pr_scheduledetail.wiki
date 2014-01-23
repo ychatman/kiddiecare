@@ -1,0 +1,25 @@
+#summary Details of mySQL database schema for table: pr_scheduledetail
+=[DatabaseSchema < Database Schema]=
+
+==kc_pr_scheduledetail==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *scheduledetailid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *scheduleid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *workareaid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *paycodeid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *weeknumber* || int(11) || NO ||  ||  ||  ||  ||
+|| *daynumber* || int(11) || NO ||  ||  ||  ||  ||
+|| *inminute* || int(11) || NO ||  ||  ||  ||  ||
+|| *outminute* || int(11) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || scheduledetailid || 1 || 0 || A || 0 || 0 ||
+|| *ix_pr_scheduledetail* || 1 || 1 || 1 || scheduleid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_scheduledetail_g_workarea* || 1 || 1 || 1 || workareaid || 1 ||  || A || 1 || 1 ||
+|| *fk_pr_scheduledetail_pr_paycode* || 1 || 1 || 1 || paycodeid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

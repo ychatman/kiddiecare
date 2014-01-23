@@ -1,0 +1,20 @@
+#summary Details of mySQL database schema for table: g_messagehistory
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_messagehistory==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *historyid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *messageid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *personid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *readdate* || datetime || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || historyid || 1 || 0 || A || 0 || 0 ||
+|| *ix_g_messagehistory_messageid* || 1 || 1 || 1 || messageid || 1 ||  || A || 1 || 1 ||
+|| *fk_g_messagehistory_g_person* || 1 || 1 || 1 || personid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

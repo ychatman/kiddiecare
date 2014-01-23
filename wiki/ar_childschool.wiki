@@ -1,0 +1,28 @@
+#summary Details of mySQL database schema for table: ar_childschool
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_childschool==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *childschoolid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *schoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *personid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *primaryworkareaid* || int(11) || NO || MUL || -1 ||  ||  ||
+|| *foodstatusid* || int(11) || NO || MUL ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || childschoolid || 1 || 1 || A || 0 || 0 ||
+|| *ix_ar_childinfo_schoolid_personid* || 0 || 0 || 0 || schoolid || 1 ||  || A || 0 || 0 ||
+|| *ix_ar_childinfo_schoolid_personid* || 0 || 0 || 0 || personid || 2 || 1 || A || 0 || 0 ||
+|| *idx_schoolid_primaryworkareaid* || 1 || 1 || 1 || schoolid || 1 ||  || A || 1 || 1 ||
+|| *idx_schoolid_primaryworkareaid* || 1 || 1 || 1 || primaryworkareaid || 2 ||  || A || 1 || 1 ||
+|| *ix_ar_childschool* || 1 || 1 || 1 || schoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_childschool_fp_foodstatus* || 1 || 1 || 1 || foodstatusid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_child_g_person* || 1 || 1 || 1 || personid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_childschool_g_workarea* || 1 || 1 || 1 || primaryworkareaid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+|| childschoolid || schoolid || personid || primaryworkareaid || foodstatusid ||
+|| -1 || -1 || -1 || -1 || -1 ||

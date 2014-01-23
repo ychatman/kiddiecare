@@ -1,0 +1,21 @@
+#summary Details of mySQL database schema for table: pr_employeesalary
+=[DatabaseSchema < Database Schema]=
+
+==kc_pr_employeesalary==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *employeesalaryid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *paycodeid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *employeeschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *salaryrate* || decimal(18,2) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || employeesalaryid || 1 || 0 || A || 0 || 0 ||
+|| *ix_pr_employeesalary* || 0 || 0 || 0 || employeeschoolid || 1 ||  || A || 0 || 0 ||
+|| *ix_pr_employeesalary* || 0 || 0 || 0 || paycodeid || 2 || 0 || A || 0 || 0 ||
+|| *fk_pr_employeesalary_pr_paycode* || 1 || 1 || 1 || paycodeid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

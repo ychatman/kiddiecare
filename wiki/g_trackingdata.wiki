@@ -1,0 +1,22 @@
+#summary Details of mySQL database schema for table: g_trackingdata
+=[DatabaseSchema < Database Schema]=
+
+==kc_g_trackingdata==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *trackingdataid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *trackingitemid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *trackingextid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *targetid* || int(11) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || trackingdataid || 1 || 0 || A || 0 || 0 ||
+|| *ix_g_trackingdata* || 0 || 0 || 0 || trackingitemid || 1 ||  || A || 0 || 0 ||
+|| *ix_g_trackingdata* || 0 || 0 || 0 || targetid || 2 || 0 || A || 0 || 0 ||
+|| *idx_trackingextid_trackingitemid* || 1 || 1 || 1 || trackingextid || 1 ||  || A || 1 || 1 ||
+|| *idx_trackingextid_trackingitemid* || 1 || 1 || 1 || trackingitemid || 2 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

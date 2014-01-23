@@ -1,0 +1,24 @@
+#summary Details of mySQL database schema for table: ar_agencypaymentdetail
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_agencypaymentdetail==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *agencypaymentdetailid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *agencypaymentid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *accountledgerid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *appliedamount* || decimal(18,2) || NO ||  ||  ||  ||  ||
+|| *adjustmentamount* || decimal(18,2) || NO ||  ||  ||  ||  ||
+|| *adjustmentcodeid* || int(11) || NO || MUL ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || agencypaymentdetailid || 1 || 0 || A || 0 || 0 ||
+|| *ix_ar_agencypaymentdetailuniquerecord* || 0 || 0 || 0 || agencypaymentid || 1 ||  || A || 0 || 0 ||
+|| *ix_ar_agencypaymentdetailuniquerecord* || 0 || 0 || 0 || accountledgerid || 2 || 0 || A || 0 || 0 ||
+|| *fk_ar_agencypaymentdetail_ar_accountledger* || 1 || 1 || 1 || accountledgerid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_agencypaymentdetail_ar_agencyadjustcodes* || 1 || 1 || 1 || adjustmentcodeid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

@@ -1,0 +1,25 @@
+#summary Details of mySQL database schema for table: ar_childrel
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_childrel==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *childrelid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *personid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *childreltid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *isliveswith* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *isemergency* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *ispickup* || tinyint(1) || NO ||  ||  ||  ||  ||
+|| *vieworder* || int(11) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || childrelid || 1 || 0 || A || 0 || 0 ||
+|| *ix_ar_childrel* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_childrel_g_person* || 1 || 1 || 1 || personid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_accountchildrel_g_typestable* || 1 || 1 || 1 || childreltid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data

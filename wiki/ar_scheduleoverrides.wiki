@@ -1,0 +1,23 @@
+#summary Details of mySQL database schema for table: ar_scheduleoverrides
+=[DatabaseSchema < Database Schema]=
+
+==kc_ar_scheduleoverrides==
+|| *Field* || Type || Null || Key || Default || Extra || Comment ||
+|| *scheduleoverridesid* || int(11) || NO || PRI ||  || auto_increment ||  ||
+|| *childschoolid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *overridedate* || datetime || NO ||  ||  ||  ||  ||
+|| *workareaid* || int(11) || NO || MUL ||  ||  ||  ||
+|| *inminute* || int(11) || NO ||  ||  ||  ||  ||
+|| *outminute* || int(11) || NO ||  ||  ||  ||  ||
+|| *comment* || varchar(30) || NO ||  ||  ||  ||  ||
+
+
+===Indexes===
+|| *Keyname* || Type || Unique || Packed || Column || Seq || Cardinality || Collation || Null || Comment ||
+|| *PRIMARY* || 0 || 0 || 0 || scheduleoverridesid || 1 || 0 || A || 0 || 0 ||
+|| *fk_ar_scheduleoverrides_ar_childschool* || 1 || 1 || 1 || childschoolid || 1 ||  || A || 1 || 1 ||
+|| *fk_ar_scheduleoverrides_g_workarea* || 1 || 1 || 1 || workareaid || 1 ||  || A || 1 || 1 ||
+
+
+===Default Data===
+No Default Data
